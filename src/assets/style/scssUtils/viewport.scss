@@ -1,0 +1,23 @@
+// 使用 scss 的 math 函数
+@use "sass:math";
+
+// 默认设计稿的宽度
+$designWidth: 1280;
+// 默认设计稿的高度
+$designHeight: 800;
+
+// math.div：参数1 除以 参数二
+// math.round：四舍五入到最接近的整数。
+
+// px 转为 vw 的函数
+@function _vw($px) {
+  $result: math.div($px, $designWidth) * 100vw;
+  // 保留小数点后两位
+  @return math.div(math.round($result * 100), 100);
+}
+// px 转为 vh 的函数
+@function _vh($px) {
+  $result: math.div($px, $designHeight) * 100vh;
+  // 保留小数点后两位
+  @return math.div(math.round($result * 100), 100);
+}
